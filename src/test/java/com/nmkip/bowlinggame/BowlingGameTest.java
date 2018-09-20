@@ -54,7 +54,6 @@ public class BowlingGameTest {
     @Test
     public void acceptanceTest2() {
         game.roll(1,4, 4,5, 6,4, 5,5, 5,5, 0,1, 7,3, 6,4, 2,2, 2,8, 6);
-
         assertThat(game.score(), is(103));
     }
 
