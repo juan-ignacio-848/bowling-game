@@ -5,8 +5,8 @@ public class Game {
     int[] rolls = new int[21];
     int lastRollIndex = 0;
 
-    public void roll(int... pinsDownPerFrame) {
-        for (int pinsDown : pinsDownPerFrame) {
+    public void roll(int... rolls) {
+        for (int pinsDown : rolls) {
             roll(pinsDown);
         }
     }
