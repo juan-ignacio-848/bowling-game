@@ -33,4 +33,9 @@ public class BowlingGameTest {
         assertThat(game.score(), is(16));
     }
 
+    @Test
+    public void should_return_22_when_one_roll_is_strike_followed_by_3_3_and_then_0s() {
+        game.roll(10, 3,3, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        assertThat(game.score(), is(22));
+    }
 }
