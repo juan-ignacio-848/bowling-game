@@ -5,9 +5,9 @@ public class Game {
     private int[] rolls = new int[21];
     private int lastRollIndex = 0;
 
-    public void roll(int... pinsDown) {
-        for (int p : pinsDown) {
-            roll(p);
+    public void roll(int... rolls) {
+        for (int pinsDown : rolls) {
+            roll(pinsDown);
         }
     }
 
@@ -19,7 +19,8 @@ public class Game {
     public int score() {
         int score = 0;
         int cursor = 0;
-        for (int frame = 0; frame < 10; frame++) {
+        final int numberOfFrames = 10;
+        for (int frame = 0; frame < numberOfFrames; frame++) {
             if(isStrike(cursor)) {
                 score += 10 + rolls[cursor + 1] + rolls[cursor + 2];
                 cursor += 1;
