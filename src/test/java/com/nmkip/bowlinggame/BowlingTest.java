@@ -6,13 +6,13 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
-public class BowlingGameTest {
+public class BowlingTest {
 
-    private BowlingGame game;
+    private Bowling game;
 
     @Before
     public void setUp() {
-        game = new BowlingGame();
+        game = new Game();
     }
 
     @Test
@@ -39,4 +39,19 @@ public class BowlingGameTest {
         assertThat(game.score(), is(24));
     }
 
+    // --------------------------------------------------------------------------
+    // -- Acceptance Tests ------------------------------------------------------
+    // --------------------------------------------------------------------------
+    
+    @Test
+    public void should_score_300_when_rolling_a_perfect_game() {
+        game.roll(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        assertThat(game.score(), is(300));
+    }
+
+    @Test
+    public void should_score_133_when_rolling_this_random_game() {
+        game.roll(1,4, 4,5, 6,4, 5,5, 10, 0,1, 7,3, 6,4, 10, 2,8, 6);
+        assertThat(game.score(), is(133));
+    }
 }

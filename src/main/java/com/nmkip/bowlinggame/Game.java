@@ -1,22 +1,25 @@
 package com.nmkip.bowlinggame;
 
-public class BowlingGame {
+public class Game implements Bowling {
 
     private final int NUMBER_OF_FRAMES = 10;
     private int[] rolls = new int[21];
     private int lastRollIndex = 0;
 
+    @Override
     public void roll(int... rolls) {
         for (int pinsDown : rolls) {
             roll(pinsDown);
         }
     }
 
+    @Override
     public void roll(int pinsDown) {
         rolls[lastRollIndex] = pinsDown;
         lastRollIndex += 1;
     }
 
+    @Override
     public int score() {
         int score = 0;
         int cursor = 0;
