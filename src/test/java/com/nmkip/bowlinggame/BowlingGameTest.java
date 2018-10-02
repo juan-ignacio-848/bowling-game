@@ -38,4 +38,10 @@ public class BowlingGameTest {
         game.roll(10, 4,2, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(game.score(), is(22));
     }
+
+    @Test
+    public void should_score_300_when_rolling_a_perfect_game() {
+        game.roll(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        assertThat(game.score(), is(300));
+    }
 }
