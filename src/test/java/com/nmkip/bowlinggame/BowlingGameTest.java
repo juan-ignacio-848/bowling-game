@@ -17,19 +17,25 @@ public class BowlingGameTest {
 
     @Test
     public void should_score_0_when_rolling_a_game_of_0s() {
-        roll(20, 0);
+        game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(game.score(), is(0));
     }
 
     @Test
     public void should_score_20_when_rolling_a_game_of_1s() {
-        roll(20, 1);
+        game.roll(1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1);
         assertThat(game.score(), is(20));
     }
 
-    private void roll(int times, int pinsDown) {
-        for (int i = 0; i < times; i++) {
-            game.roll(pinsDown);
-        }
+    @Test
+    public void should_score_18_when_rolling_a_spare_followed_by_4_then_0s() {
+        game.roll(4,6, 4,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        assertThat(game.score(), is(18));
+    }
+
+    @Test
+    public void should_score_22_when_rolling_a_strike_followed_by_4_2_then_0s() {
+        game.roll(10, 4,2, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        assertThat(game.score(), is(22));
     }
 }
