@@ -15,28 +15,20 @@ public class BowlingGameTest {
 
     @Test
     public void should_score_0_when_rolling_a_game_of_0s() {
-        roll(20, 0);
+        game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(game.score()).isEqualTo(0);
     }
 
     @Test
     public void should_score_20_when_rolling_a_game_of_1s() {
-        roll(20, 1);
+        game.roll(1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1);
         assertThat(game.score()).isEqualTo(20);
     }
 
     @Test
     public void should_score_16_when_rolling_a_spare_followed_by_3_then_0s() {
-        roll(1, 5);
-        roll(1, 5);
-        roll(1, 3);
-        roll(17, 0);
+        game.roll(5,5, 3,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(game.score()).isEqualTo(16);
     }
 
-    private void roll(int times, int pinsDown) {
-        for (int i = 0; i < times; i++) {
-            game.roll(pinsDown);
-        }
-    }
 }
