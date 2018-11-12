@@ -24,6 +24,9 @@ public class BowlingGame {
             if(isSpare(cursor)) {
                 score += 10 + rolls[cursor + 2];
                 cursor += 2;
+            } else if(rolls[cursor] == 10) {
+                score += 10 + rolls[cursor + 1] + rolls[cursor + 2];
+                cursor += 1;
             } else {
                 score += rolls[cursor] + rolls[cursor + 1];
                 cursor += 2;

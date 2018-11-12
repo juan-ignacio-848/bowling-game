@@ -31,4 +31,10 @@ public class BowlingGameTest {
         assertThat(game.score()).isEqualTo(16);
     }
 
+    @Test
+    public void should_score_22_when_rolling_a_strike_followed_by_4_2_then_0s() {
+        game.roll(10, 4,2, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        assertThat(game.score()).isEqualTo(22);
+    }
+
 }
