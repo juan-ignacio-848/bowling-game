@@ -9,7 +9,7 @@ public class BowlingGameTest {
     private BowlingGame game;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         game = new BowlingGame();
     }
 
@@ -23,6 +23,15 @@ public class BowlingGameTest {
     public void should_score_20_when_rolling_a_game_of_1s() {
         roll(20, 1);
         assertThat(game.score()).isEqualTo(20);
+    }
+
+    @Test
+    public void should_score_16_when_rolling_a_spare_followed_by_3_then_0s() {
+        roll(1, 5);
+        roll(1, 5);
+        roll(1, 3);
+        roll(17, 0);
+        assertThat(game.score()).isEqualTo(16);
     }
 
     private void roll(int times, int pinsDown) {
