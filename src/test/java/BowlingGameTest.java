@@ -13,4 +13,13 @@ public class BowlingGameTest {
         }
         assertThat(game.score()).isEqualTo(0);
     }
+
+    @Test
+    public void should_score_20_when_rolling_a_game_of_1s() {
+        BowlingGame game = new BowlingGame();
+        for(int i = 0; i < 20; i++) {
+            game.roll(1);
+        }
+        assertThat(game.score()).isEqualTo(20);
+    }
 }
