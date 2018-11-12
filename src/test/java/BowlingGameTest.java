@@ -37,4 +37,10 @@ public class BowlingGameTest {
         assertThat(game.score()).isEqualTo(22);
     }
 
+    @Test
+    public void should_score_300_when_rolling_12_strikes() {
+        game.roll(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        assertThat(game.score()).isEqualTo(300);
+    }
+
 }
